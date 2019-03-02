@@ -1,0 +1,122 @@
+// for card-style-img in top page(use for upper div).
+
+@mixin square-img(){
+    width: 185px;
+    height: 185px;
+    overflow: hidden;
+}
+
+// for alert contents (404)
+
+@mixin note($size, $padding:15px){
+    box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+    background: #fff;
+    padding: $padding;
+    width: $size;
+    margin: 30px auto;
+}
+
+// indicate score, point
+
+@mixin score-circle($size, $right:20px, $bottom:30px){
+    color: #fff;
+    background-color:#e40054;
+    opacity: 0.75;
+    padding: 0;
+    margin: 0;
+    width: $size;
+    height: $size;
+    line-height: $size;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    right: $right;
+    bottom: $bottom;
+}
+
+// override default button
+
+@mixin square($size){
+    background-color: #fff;
+    width: $size;
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #67c5ff;
+    border: solid 2px #67c5ff;
+    border-radius: 2px;
+    transition: .4s;
+    cursor: pointer;
+
+    &:hover {
+        background: #67c5ff;
+        color: white;
+    }
+}
+
+// border line 
+
+@mixin border($font-size:1.1em, $width:80%){
+    display: table;
+    font-size: $font-size; 
+    color: #b1a498;
+    text-align: center;
+    white-space: nowrap;
+    margin-bottom: 12px;
+ 
+    &:after,
+    &:before {
+        content: '';
+        display: table-cell;
+        width: $width;
+        background: linear-gradient(transparent 50%, currentColor 50%, currentColor calc(50% + 1px), transparent calc(50% + 1px));
+        background-clip: padding;
+    }
+ 
+    &:after {
+        border-left: 1em solid transparent;
+    }
+ 
+    &:before {
+        border-right: 1em solid transparent;
+    }
+}
+
+
+// tags 
+
+@mixin tags(){
+    color: #369be9;
+    background-color: #f9f9f9;
+    border: 2px solid #66b5f3;
+    padding-top: 0px;
+}
+
+// Comment in Top page
+
+
+@mixin comment($content: "COMMENT") {
+    width: 95%;
+    border: 2px solid #dfd0cf;
+    border-radius: 4px;
+    float: left;
+    position: relative;
+    margin-top: 20px;
+    padding: 5px 20px;
+    p{
+        word-wrap: break-word;
+        max-height: 48px;
+        overflow: hidden;
+    }
+
+    &:before {
+        background-color: #fff;
+        color: #da4033;
+        content: $content;
+        font-weight: bold;
+        left: 1em;
+        padding: 0 .5em;
+        position: absolute;
+        top: -1em;
+    }
+}

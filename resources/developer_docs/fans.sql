@@ -1,0 +1,39 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: 2018 年 2 月 10 日 21:39
+-- サーバのバージョン： 10.1.24-MariaDB-cll-lve
+-- PHP Version: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `udnzcdwq_cosplay_mixhost`
+--
+
+--
+-- テーブルのデータのダンプ `fans`
+--
+
+INSERT INTO `fans` (`id`, `fan_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 12, 32, '2017-09-12 01:47:14', '2017-09-12 01:47:14'),
+(2, 42, 32, '2017-09-12 03:38:46', '2017-09-12 03:38:46'),
+(3, 52, 32, '2017-09-12 04:47:36', '2017-09-12 04:47:36'),
+(12, 0, 1, '2017-10-12 04:12:50', '2017-10-12 04:12:50'),
+(13, 12, 1, '2017-11-23 18:32:10', '2017-11-23 18:32:10');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,385 @@
+.card {
+    &__item {
+        width: 49%;
+        margin: 5px;
+        padding: 10px;
+        display: flex;
+        margin-bottom: 10px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        position: relative;
+    }
+    &__img {
+		@include square-img();  
+        img {width: 100%;}         	
+    }
+    &__information {
+        width: 60%;
+    }
+    &__rank {
+		@include score-circle(55px, 10px, 145px);
+		opacity: 0.65;
+		font-size: 1.65em;
+		position: absolute;
+		background-color: white;
+		font-size: 2.65em;
+		color: red;
+	    font-family: cursive;
+    }
+    &__user {
+	    font-size: 1.65em;
+	    padding: 5px;
+    }
+    &__links {
+    	margin-left: 5px;
+		font-size: 1.24em;	
+		div {
+			margin: 3px;
+		}
+    }
+    &__sns {
+	    padding-top: 5px;
+	    padding-left: 4px;
+    }
+}
+
+.topuser{
+$right-section: 49.5%;
+$left-section: 50.5%;
+	&__section {
+		padding: 6px;
+		height: 370px;
+		overflow: hidden;
+	}
+    &__wrapper {
+        float: left;
+        width: $right-section;
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+    }
+    &__image {
+    	padding: 10px;
+    	background-color: white;
+        height: auto;
+    }
+    &__label {
+        position: absolute;
+        width: 100%;
+        height: 15%;
+        bottom: 0px;
+        background-color: rgba(0, 0, 0, 0.5);
+        div {
+        	font-family: cursive;
+        	padding-top:3%;
+	        font-size: 1.2em;
+	        color: white;
+	        text-align: center;  	
+        }
+
+    }
+	&__info_section {
+		float: right;
+		padding: 5px;
+	    width: $left-section;
+	    margin-left: auto;
+	    margin-right: auto;
+	    box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+	}
+	&__photos_list{
+		display: flex;
+        margin: auto;
+        overflow: hidden;
+	        div{
+	        	margin: auto;
+	        	width: 30%;
+	        	height: 150px;
+	        	overflow: hidden;
+	        }
+	}
+	&__list{
+		@extend .card__item;
+		width: 100%;
+	}
+	&__rank {
+		@extend .card__rank;
+	}
+	&__img{
+		@extend .card__img;
+		width: 40%;
+	}
+	&__user {
+	    @extend .card__user;
+	}
+	&__information {
+	    @extend .card__information;
+	}
+	&__links{
+		@extend .card__links;
+	}
+    &__sns {
+		@extend .card__sns;
+    }
+}
+
+.top {
+$margin-top: 5px;
+$max-height: 380px;
+    &__rankers {
+        margin-top: $margin-top;
+        max-height: $max-height + 5px;
+            &__item {
+				@extend .card__item;
+				float:left;
+            }
+            &__img {
+				@extend .card__img;       	
+            }
+            &__information {
+                @extend .card__information;
+            }
+            &__rank {
+            	@extend .card__rank;
+            }
+            &__user {
+				@extend .card__user;
+            }
+            &__links {
+				@extend .card__links;
+            }
+            &__sns {
+            	@extend .card__sns;
+            }
+    }
+    &__middle_section {
+    	background-color: white;
+    	margin-left: 5px;
+    	margin-right: 5px;
+    	padding: 10px;
+    	overflow: hidden;
+    	h2 {margin-top: 0px;}
+    }
+}
+
+.topicon {
+    width: 30px;
+    height: 30px;
+}
+
+.top_border {
+    @include border(90%);
+    background-color: white;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    clear: both;
+}
+
+@media screen and (max-width: 900px) and (min-width: 400px) {
+	.topuser{
+	$right-section: 100%;
+	$left-section: 100%;
+		&__section {
+			padding: 6px;
+			height: auto;
+			overflow: hidden;
+		}
+	    &__wrapper {
+	        float: left;
+	        width: $right-section;
+	        position: relative;
+	        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+	    }
+		&__info_section {
+			float: right;
+			padding: 10px;
+			background-color: white;
+		    width: $left-section;
+		    margin-left: auto;
+		    margin-right: auto;
+		    box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+		}
+		&__photos_list{
+			display: flex;
+	        margin: auto;
+	        overflow: hidden;
+		        div{
+		        	margin: auto;
+		        	width: 30%;
+		        	height: 150px;
+		        	overflow: hidden;
+		        }
+		}
+		&__list{
+		    width: 100%;
+		    margin-top: 5px;
+		    padding: 5px;
+		    display: flex;
+		    float: left;
+		    position: relative;
+		}
+	}
+
+	.top {
+	$margin-top: 0px;
+	$max-height: 380px;
+	    &__rankers {
+	        margin-top: $margin-top;
+	        max-height: $max-height + 5px;
+	            &__item {
+	                width: 98%;
+	                margin: 5px;
+	                padding: 10px;
+	                display: flex;
+	            	float: left;
+	                margin-bottom: 10px;
+	                background-color: white;
+	                box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+	                position: relative;
+	            }
+	            &__img {
+					@include square-img();  
+	                img {width: 100%;}         	
+	            }
+	            &__infomation {
+	                width: 60%;
+	            }
+	            &__rank {
+					@include score-circle(55px, 10px, 145px);
+					opacity: 0.65;
+					font-size: 1.65em;
+					position: absolute;
+					background-color: white;
+					font-size: 2.65em;
+					color: red;
+				    font-family: cursive;
+	            }
+	            &__user {
+				    font-size: 1.65em;
+				    padding: 5px;
+	            }
+	            &__links {
+	            	margin-left: 5px;
+					font-size: 1.24em;	
+					div {
+						margin: 3px;
+					}
+	            }
+	            &__sns {
+					padding: 5px;
+					margin-top: 10px;
+					margin-left: 5px;
+	                div {margin-bottom: 5px;}
+	            }
+	            &__sns {
+					padding: 5px;
+					margin-top: 10px;
+					margin-left: 5px;
+	                div {margin-bottom: 5px;}
+	            }
+	    }
+	    &__middle_section {
+	    	background-color: white;
+	    	margin-left: 5px;
+	    	margin-right: 5px;
+	    	padding: 10px;
+	    	h2 {margin-top: 0px;}
+	    }
+	}
+
+	.topicon {
+	    width: 30px;
+	    height: 30px;
+	}
+
+	.top_border {
+	    @include border(90%);
+	    background-color: white;
+	    margin-bottom: 0px;
+	    padding-top: 20px;
+	    padding-right: 10px;
+	    padding-left: 10px;
+	    margin-left: 5px;
+	    margin-right: 5px;
+	    margin-top: 20px;
+	    clear: both;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.topuser {
+		&__list {
+			margin: 0 auto;
+		}
+		&__wrapper {
+			width: 100%;
+		}
+		&__photos_list {
+			margin-bottom: 5px;
+		}
+		&__section {
+			padding: 0px;
+		    height: auto;
+		    overflow: hidden;
+		}
+		&__info_section{
+			width: 100%;
+		}
+        &__rank {
+			@include score-circle(30px, 10px, 82%);
+			opacity: 0.65;
+			font-size: 1.65em;
+			position: absolute;
+			background-color: white;
+			font-size: 1.8em;
+			color: red;
+		    font-family: cursive;
+        }
+	}
+	.top {
+	$margin-top: 5px;
+	$max-height: 950px;
+	$width: 100%;
+	    &__rankers {
+	        margin-top: $margin-top;
+	        width: 100%;
+	        max-height: $max-height;
+	        overflow: hidden;
+	            &__right_section {
+	                width: $width;
+	            }
+	            &__left_section {
+	            	// display: none;
+	                width: $width;
+	            }
+	            &__item {
+					width:98%;
+	            }
+	            &__img {
+	                width: 40%;
+	                height: auto;
+	                img {width: 100%;}
+	            }
+	            &__rank {
+					@include score-circle(30px, 10px, 82%);
+					opacity: 0.65;
+					font-size: 1.65em;
+					position: absolute;
+					background-color: white;
+					font-size: 1.8em;
+					color: red;
+				    font-family: cursive;
+	            }
+	    }
+	}
+	.top_border {
+	    @include border(90%);
+		padding-top: 18px;
+	    margin-top: 20px;
+	    margin-bottom:0px;
+	    clear: both;
+	}
+}

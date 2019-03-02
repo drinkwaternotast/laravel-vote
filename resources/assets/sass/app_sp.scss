@@ -1,0 +1,696 @@
+
+// Fonts
+// @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+// Mixins
+@import "mixins_sp";
+
+// 3rd pty's
+@import "others_sp";
+
+// To provide mediascreen for TOP Page layout
+@import "layouts";
+
+//  Additional Fonts
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+// Bootstrap
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: helvetica;
+    background: rgb(235, 238, 243);
+    color: #616161;
+}
+
+a {
+    text-decoration: none;
+    color: #616161;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.container {
+    margin-bottom: 50px;
+}
+
+.navbar {
+    background: #fff;
+    font-size: 1.4em;
+    padding: 15px 25px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__brand a {
+        color: #E91E63;
+        font-weight: bold;
+    }
+    &__list {
+        margin: 0;
+        padding: 0;
+    }
+    &__item {
+        display: inline;
+        margin-left: 25px;
+        cursor: pointer;
+    }
+}
+
+.border {
+    @include border(64%);
+}
+
+.loading {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    margin: auto;
+    width: 128px;
+    height: 64px;
+    font-size: 1.4em;
+}
+
+.home {
+    overflow: hidden;
+    background-color: #ebeef3;
+    // padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+}
+
+.special {
+    &__post {
+        margin-left: 2%;
+        margin-bottom: 2%;
+        width: 47%;
+        max-height: 155px;
+        float: left;
+        overflow: hidden;
+    }
+}
+
+.photo {
+    &__header {
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px 5px;
+
+        h3 {
+            display: none;
+        }
+    }
+    &__footer_inner {
+        float:right;
+        font-size: 0.8em;
+    }
+    &__list {
+        // display: flex;
+        // flex-wrap: wrap;
+        margin-top: 5px;
+    }
+    &__show {
+        width: 95%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    &__item {
+        // position: relativeは影響あれば解除
+        position: relative;
+        background: #fff;
+        width: 48%;
+    	float: left;
+    	overflow: hidden;
+        display: block;
+        margin: 1%;
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        img {
+            height: 235px;
+            overflow: hidden;
+        }
+    }
+    &__image {
+        max-width: 98%;
+        margin-top: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &__box {
+        padding: 8px;
+        background: #fff;
+    }
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        // margin-top: 15px;
+    }
+    &__title {
+        color: #E91E63;
+    }
+    &__details {
+        width: 98%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+    }
+    &__details_inner {
+        // margin-left: 25px;
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        background: #fff;
+        padding: 15px;
+    }
+    &__details_menu {
+        @extend .photo__details_inner;
+        display:flex;
+        margin-top: 20px;
+        font-size: 1em;
+    }
+    &__form {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+    }
+    &__user {
+        height: 30px;
+        text-align: center;
+    }
+    &__action {
+        position: absolute;
+        padding-left: 5px;
+        padding-right: 5px;
+        bottom: 5px;
+        display: flex;
+        width: 100%
+    }
+    &__action_main {
+        width: 65%;
+        margin-right: 3px;
+    }
+    &__action_sub {
+        margin-left: auto;
+        display: flex;
+    }
+}
+
+.image {
+    &__upload {
+        height: 257px;
+        background: #fafafa;
+        border: 1px dashed  rgba(0,0,0,.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__preview {
+        position: relative;
+    }
+    &__close {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+// Override select2 in node_modules(.spinner, .loading)
+.photo {
+    &__header {
+        .v-select .spinner {
+            width: 2.5em;
+            height: 2.5em;
+        }
+        .loading {
+            height: 32px;
+            font-size: 1.1em;
+            opacity: 0.6;
+            width: 100%;
+        }
+        .search_wrapper {
+            display: flex;  
+            margin-left: auto;
+            width: 85%;
+            // font-size: 0.75em;
+            .v-select { width: 100% } 
+            .selected-tag { @include tags(); }   
+        }
+    }
+}
+
+.about {
+    @extend .tabbed;
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        height: 1300px;
+        h2 {
+            font-size: 1em;
+            text-decoration: underline;
+        }
+        label {
+            font-size: 1em;
+        }
+        .tabs {
+                line-height: 128%; 
+            &__en {
+                font-size: 1em;  
+                font-style: italic;
+                padding-left: 0.5em;
+
+            }
+            &__jp {
+                font-size: 0.8em; 
+                font-style: oblique;
+                padding-left: 0.5em;
+                color: cadetblue;
+            }
+        }
+}
+
+.pair {
+    //https://tenkatori-kessen.com/ 参考にする
+    &__row {
+        @extend .photo__row;
+    }
+    &__list{
+        @extend .photo__list;
+            display: flex;
+            width: 100%;
+    }
+    &__main {
+        width: 100%;
+    }
+    &__item { 
+            width: 95%;
+            display: table;
+            margin: 10px;
+            background-color: #fff;
+    }
+    &__time {
+        font-size: 0.98em;
+        display: table-caption;
+        padding-top: 10px;
+        text-align: center;
+        background-color: #fff;
+    }
+    &__box {
+        @extend .photo__box;
+            position: relative;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            img {
+                max-width: 210px;
+                // max-height: 330px;
+            }
+    }
+    &__versus {
+        font-size: 1em;
+        font-style: italic;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        // padding: 4px 4px 5px 5px;
+        // border: solid 2px #b1adae;
+
+    }
+    &__rules_wrapper {
+        display: none;
+    }
+    &__rules {
+        display: none;
+    }
+    &__circle {
+        @include score-circle(45px, 5%, 20%);
+            position: absolute;
+    }
+}
+
+.stage {
+    //https://tenkatori-kessen.com/ 参考にする
+    &__wrapper{
+        padding: 20px;
+    }
+    &__box{
+        @extend .pair__box;
+        margin: 10px; 
+        padding-left: 15px;
+        vertical-align: baseline;
+        img {
+            max-width: 200px;
+            max-height: 290px;
+        }
+    }
+    &__submit{
+        text-align: center;
+    }
+    &__border{
+        @include border(100%, 80px);
+    }
+}
+
+.profile {
+    &__image {
+        float: left;
+        flex-wrap: wrap;
+    }
+    &__menu {
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        background: #fff;
+        padding: 15px;
+        margin-top: 25px;
+    }
+    &__list {
+
+    }
+}
+
+.ranking {
+    &__row {
+        @extend .photo__row;
+    }
+    &__list {
+        @extend .photo__list;
+    }
+    &__item { 
+        // @extend .photo__item;
+            position: relative;
+            background: #fff;
+            box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+            display: flex;
+            width: 98%;
+            margin: 1%;
+            min-height: 190px;
+    }
+    &__box {
+        @extend .photo__box;
+        padding: 8px;
+        position: relative;
+        width: 38%;
+    }
+    &__infomation {
+        padding-left: 5px;
+        width: 65%;
+    }
+    &__name {
+        font-size: 1.2em;
+        margin-bottom: 7px;
+        width: 65%;
+    }
+    &__icons {
+        display: flex;
+        font-size: 0.8em;
+        p {
+            margin-right: 5px;
+        }
+    }
+    &__action { 
+        position: absolute;
+        bottom: 10px;
+        display: flex;
+        width: 20%;
+    }
+    &__action_main { 
+        width: 85%;
+        margin-right: 4px;
+
+    }
+    &__rank {
+        @include score-circle(45px, 20px, 185px);
+        background-color:#fff;
+        color: #3c3737;
+        font-size: 1.6em;
+        position: absolute;
+        top: 1px;
+    }
+    &__circle {
+        @include score-circle(45px);
+        position: absolute;
+        bottom: 6%;
+    }
+    &__main {
+        width: 100%;
+    }
+    &__rules {
+        display: none;
+    }
+}
+
+.history {
+
+$list_width: 100%;
+$item_width: 100%; 
+$item_height: 220px; 
+
+    &__row {
+        @extend .photo__row;
+    }
+    &__list{
+        @extend .photo__list;
+            width: $list_width;
+    }
+    &__wrapper {
+        overflow:hidden;
+        width: 98%;
+        float: left;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    &__time {
+        background-color: #fff;
+        padding: 7px;
+        margin-bottom: 0px;
+    }
+    &__item { 
+        background-color: white;
+        min-height: 200px;
+        height: $item-height;
+        width: 100%;
+        display: flex;
+        margin: 0px;
+        padding: 10px;
+    }
+    &__box {
+        @extend .photo__box;
+            position: relative;
+            overflow: hidden;
+            padding: 0px;
+            vertical-align: middle;
+            text-align: center;
+    }
+    &__versus { 
+        font-style: italic;
+        padding-left: 8px;
+        padding-right: 8px;
+        text-align: center;
+        margin-top: $item_height / 2;
+    }
+    &__overlay {
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &__circle {
+        @include score-circle(45px, 2%, 2%);
+        position: absolute;
+    }
+}
+
+.appendix {
+    &__box{
+        padding: 15px;
+        background-color: #fff;
+    }
+    &__infomation {
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        height: 200px;
+    }
+    &__photo_info {
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        padding: 10px 20px 10px 20px;
+        background-color:#fff;
+    }
+    &__title {
+        font-size: 1.6em;
+        margin-top: 5px;
+        margin-bottom: 7px;
+        width: 100%;
+        overflow: hidden;
+    }
+    &__battle_info {
+        box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+        font-size: 1.2em;
+        padding: 0px 10px;
+        position: relative;
+        background-color:#fff;
+        margin-top: 30px;
+        overflow: hidden;
+        p{
+            margin-left: 10px;
+            margin-right: 15px;
+        }
+    }
+    &__flag {
+        font-size: 1.4em;
+        padding: 10px;
+        text-align: center;
+        float: left;
+    }
+    &__ratio {
+        padding: 10px;
+        text-align: center;
+        float: left;
+    }
+    &__link {
+        position: absolute;
+        top: 50%;
+        right: 5%;        
+    }
+}
+
+.form {
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.09) 0 1px 0;
+    width: 80%;
+    margin: 30px auto;
+    padding: 15px;
+    &__group {
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        margin-top: 15px;
+        .loading {
+            width: 100%;
+        }
+    }
+    &__control {
+        font-family: helvetica;
+        font-size: 14px;
+        width: 100%;
+        display: block;
+        background: #fafafa;
+        border: none;
+        border-radius: 2px;
+        box-shadow: inset 0 1px 1px 0 rgba(0,0,0,.1);
+        outline: none;
+        padding: 8px;
+        &:focus {
+            background: rgba(225, 245, 254, 0.31);
+        }
+    }
+    &__margin {
+        margin-right: 10px;
+    }
+    &__title {
+        height: 30px;
+    }
+    &__description {
+        height: 120px;
+    }
+    &__comment {
+        height: 140px;
+    }
+}
+
+.btn {
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    height: 30px;
+    padding: 8px 16px;
+    position: relative;
+    text-shadow: none;
+    vertical-align: top;
+    cursor: pointer;
+    background: #f4f4f4;
+    color: #484746;
+    box-shadow: 0 1px darken(#f4f4f4, 13%);
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.15;
+    &:active {
+        box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+    }
+    &[disabled] {
+        opacity: 0.75;
+        cursor: not-allowed;
+    }
+    &__primary {
+    	background: #3aa3e3;
+    	color: #fff;
+    	box-shadow: 0 1px darken(#3aa3e3, 13%);
+    }
+    &__danger {
+        background: #E75650;
+        color: #fff;
+        box-shadow: 0 1px darken(#E75650, 13%);
+    }
+}
+
+.not_found {
+    @include note(930px);
+    &__partial {
+       @include note(930px); 
+    }
+}
+
+/////////////// override default button ///////////////
+
+.square_btn {
+    &__default {
+        @include square(auto);
+    }
+    &__entry {
+        @include square(100%);
+    }
+    &__favorite {
+        @include square(auto);
+        padding: 0.3em;
+    }
+    &__fan {
+        @include square(auto);
+        padding: 0.3em 0.3em;
+        margin-left: 3px;
+    }
+    &__close {
+        @include square(auto);
+        margin-left: 3px;
+        padding: 0.3em 0.3em;
+    }
+    &__good {
+        @include square(40%);
+        color: #e40054;
+        border: solid 2px #e40054;
+        &:hover {
+            background: #e40054;
+            color: white;
+        }
+    }
+    &__battle_start {
+        @include square(50%);
+            margin-top: 8px;
+            padding: 15px;
+            font-size: 1.3em;
+    }
+    &__tag_search {
+        @include square(auto);
+            padding: 0.5em;
+            margin-left: 6px;
+    }
+}
